@@ -1,0 +1,120 @@
+<!-- Page 9: Assumptions & Methodology Fragment -->
+<div class="dashboard-grid">
+  <div class="card col-12" style="margin-bottom: 1.5rem;">
+    <div class="card-header">
+      <span class="card-title">Actuarial Formulas & Theoretical Framework</span>
+    </div>
+    <div class="card-body">
+      <div class="dashboard-grid">
+        <div class="col-6">
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--primary);">
+            1. Claim Frequency (Poisson GLM with Log-Exposure Offset)
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            $$\log(E[N_i]) = \mathbf{X}_i \boldsymbol{\beta} + \log(\text{Exposure}_i)$$
+            Annualized claim rate: $\lambda_i = \exp(\mathbf{X}_i \boldsymbol{\beta})$ (Exposure = 1.0 year).<br>
+            Expected claims for term: $\hat{N}_i = \lambda_i \times \text{Exposure}_i$.
+          </p>
+
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin: 1rem 0 0.5rem 0; color: var(--primary);">
+            2. Claim Severity (Gamma GLM with Log Link)
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            $$\log(E[Y_i \mid N_i > 0]) = \mathbf{X}_i \boldsymbol{\gamma} \implies \hat{Y}_i = \exp(\mathbf{X}_i \boldsymbol{\gamma})$$
+            Models expected cost per individual claim, accounting for skewed, positive claim distributions.
+          </p>
+        </div>
+
+        <div class="col-6">
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--primary);">
+            3. Pure Premium & Term Expected Loss
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            $$\text{Annual Pure Premium} = \lambda_i \times \hat{Y}_i$$
+            $$\text{Expected Loss for Policy Term} = \lambda_i \times \hat{Y}_i \times \text{Exposure}_i$$
+            <em>Exposure is strictly preserved and never double-counted.</em>
+          </p>
+
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin: 1rem 0 0.5rem 0; color: var(--primary);">
+            4. Commercial Loading Formula
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            $$\text{Commercial Premium} = \frac{\text{Expected Loss} + \text{Fixed Expense}}{1 - \text{VarExp} - \text{RiskMargin} - \text{ProfitMargin}}$$
+            Strictly validated: $1 - (\text{VarExp} + \text{RiskMargin} + \text{ProfitMargin}) > 0.05$.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Commercial Loading Assumptions (Configurable)</span>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Fixed Administrative Expense</td>
+            <td class="table-num"><strong>30.00 €</strong> / policy</td>
+          </tr>
+          <tr>
+            <td>Variable Acquisition Expense Ratio</td>
+            <td class="table-num"><strong>15.0%</strong> (0.15)</td>
+          </tr>
+          <tr>
+            <td>Cost of Capital / Risk Margin Ratio</td>
+            <td class="table-num"><strong>5.0%</strong> (0.05)</td>
+          </tr>
+          <tr>
+            <td>Underwriting Target Profit Margin</td>
+            <td class="table-num"><strong>5.0%</strong> (0.05)</td>
+          </tr>
+          <tr>
+            <td>Statutory Insurance Duty / Tax</td>
+            <td class="table-num"><strong>18.0%</strong> (0.18)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Documented Risk Tier Classification Thresholds</span>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Annual Pure Premium Threshold</th>
+            <th>Target Percentile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-low">Low</span></td>
+            <td>≤ 35.00 €</td>
+            <td>Bottom 30% of portfolio</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-moderate">Moderate</span></td>
+            <td>35.00 € - 75.00 €</td>
+            <td>30th to 70th percentile</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-high">High</span></td>
+            <td>75.00 € - 160.00 €</td>
+            <td>70th to 90th percentile</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-very-high">Very High</span></td>
+            <td>> 160.00 €</td>
+            <td>Top 10% risk tail</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

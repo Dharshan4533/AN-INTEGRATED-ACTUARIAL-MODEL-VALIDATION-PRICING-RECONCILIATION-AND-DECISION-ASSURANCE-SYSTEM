@@ -1,0 +1,122 @@
+{
+  "total_positive_claims": 26639,
+  "total_portfolio_exposure": 358499.45,
+  "selected_threshold_u": 40000.0,
+  "threshold_selection_rationale": "Selected u = 40000 EUR from empirical Mean Excess analysis. Retains 111 extreme bodily injury exceedances (0.42%) satisfying statistical tail stability (>= 100 exceedances) while isolating the linear Pareto regime.",
+  "exceedance_count": 111,
+  "large_loss_load_per_exposure_eur": 40.9437,
+  "attritional_cost_per_exposure_eur": 128.3674,
+  "total_pure_cost_per_exposure_eur": 169.3111,
+  "reconciliation_leakage_eur": 0.0,
+  "is_exact_decomposition": true,
+  "mean_excess_table": [
+    {
+      "threshold_u": 2000.0,
+      "exceedance_count": 3927,
+      "exceedance_pct": 14.742,
+      "mean_excess_e_u": 8039.28,
+      "std_error": 1210.26,
+      "total_excess_amount": 31570238.94,
+      "load_per_exposure": 88.0622
+    },
+    {
+      "threshold_u": 5000.0,
+      "exceedance_count": 1250,
+      "exceedance_pct": 4.692,
+      "mean_excess_e_u": 19980.08,
+      "std_error": 3768.43,
+      "total_excess_amount": 24975105.31,
+      "load_per_exposure": 69.6657
+    },
+    {
+      "threshold_u": 10000.0,
+      "exceedance_count": 485,
+      "exceedance_pct": 1.821,
+      "mean_excess_e_u": 43225.35,
+      "std_error": 9578.63,
+      "total_excess_amount": 20964296.3,
+      "load_per_exposure": 58.4779
+    },
+    {
+      "threshold_u": 15000.0,
+      "exceedance_count": 302,
+      "exceedance_pct": 1.134,
+      "mean_excess_e_u": 63113.89,
+      "std_error": 15214.18,
+      "total_excess_amount": 19060394.85,
+      "load_per_exposure": 53.1672
+    },
+    {
+      "threshold_u": 20000.0,
+      "exceedance_count": 218,
+      "exceedance_pct": 0.818,
+      "mean_excess_e_u": 81525.45,
+      "std_error": 20873.53,
+      "total_excess_amount": 17772548.08,
+      "load_per_exposure": 49.5748
+    },
+    {
+      "threshold_u": 25000.0,
+      "exceedance_count": 179,
+      "exceedance_pct": 0.672,
+      "mean_excess_e_u": 93808.26,
+      "std_error": 25249.04,
+      "total_excess_amount": 16791679.27,
+      "load_per_exposure": 46.8388
+    },
+    {
+      "threshold_u": 30000.0,
+      "exceedance_count": 151,
+      "exceedance_pct": 0.567,
+      "mean_excess_e_u": 105842.6,
+      "std_error": 29739.35,
+      "total_excess_amount": 15982231.94,
+      "load_per_exposure": 44.5809
+    },
+    {
+      "threshold_u": 35000.0,
+      "exceedance_count": 130,
+      "exceedance_pct": 0.488,
+      "mean_excess_e_u": 117542.4,
+      "std_error": 34336.34,
+      "total_excess_amount": 15280512.53,
+      "load_per_exposure": 42.6235
+    },
+    {
+      "threshold_u": 40000.0,
+      "exceedance_count": 111,
+      "exceedance_pct": 0.417,
+      "mean_excess_e_u": 132236.82,
+      "std_error": 39939.47,
+      "total_excess_amount": 14678286.64,
+      "load_per_exposure": 40.9437
+    },
+    {
+      "threshold_u": 50000.0,
+      "exceedance_count": 89,
+      "exceedance_pct": 0.334,
+      "mean_excess_e_u": 153863.26,
+      "std_error": 49289.63,
+      "total_excess_amount": 13693830.39,
+      "load_per_exposure": 38.1976
+    },
+    {
+      "threshold_u": 75000.0,
+      "exceedance_count": 51,
+      "exceedance_pct": 0.191,
+      "mean_excess_e_u": 233497.68,
+      "std_error": 83354.84,
+      "total_excess_amount": 11908381.88,
+      "load_per_exposure": 33.2173
+    },
+    {
+      "threshold_u": 100000.0,
+      "exceedance_count": 42,
+      "exceedance_pct": 0.158,
+      "mean_excess_e_u": 255560.04,
+      "std_error": 99912.9,
+      "total_excess_amount": 10733521.57,
+      "load_per_exposure": 29.9401
+    }
+  ]
+}

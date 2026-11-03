@@ -1,0 +1,73 @@
+<!-- Page 8: Stress Testing Fragment -->
+<div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+  <div class="card col-12">
+    <div class="card-header">
+      <span class="card-title">Select Stress Scenario</span>
+    </div>
+    <div class="card-body" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <button class="btn btn-outline" onclick="app.runStressScenario(1.15, 1.10, 0.0, 'Adverse Weather & Inflation (+15% Freq, +10% Sev)')">
+        🌧️ Adverse Weather & Inflation Shock (+15% / +10%)
+      </button>
+      <button class="btn btn-outline" onclick="app.runStressScenario(1.30, 1.20, 0.0, 'Severe Road Collision Surge (+30% Freq, +20% Sev)')">
+        🚗 Severe Claim Frequency Surge (+30% / +20%)
+      </button>
+      <button class="btn btn-outline" onclick="app.runStressScenario(1.10, 1.05, 15.0, 'Rating Deterioration (+15 Bonus-Malus Shift)')">
+        📉 Portfolio Rating Deterioration (+15 BM Shift)
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-grid">
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title" id="st-scenario-title">Scenario Evaluation</span>
+    </div>
+    <div class="card-body">
+      <div class="waterfall-list">
+        <div class="waterfall-item">
+          <span>Baseline Expected Portfolio Loss</span>
+          <strong id="st-base-loss">--</strong>
+        </div>
+        <div class="waterfall-item">
+          <span>Stressed Expected Portfolio Loss</span>
+          <strong id="st-stress-loss">--</strong>
+        </div>
+        <div class="waterfall-item highlight">
+          <span>Expected Loss Increase</span>
+          <strong id="st-delta-loss" style="color: var(--danger);">--</strong>
+        </div>
+        <div class="waterfall-item">
+          <span>Baseline 99% Value at Risk (VaR)</span>
+          <strong id="st-base-var">--</strong>
+        </div>
+        <div class="waterfall-item">
+          <span>Stressed 99% Value at Risk (VaR)</span>
+          <strong id="st-stress-var">--</strong>
+        </div>
+        <div class="waterfall-item highlight">
+          <span>Additional Capital Requirement (99% VaR)</span>
+          <strong id="st-delta-var" style="color: var(--danger);">--</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Solvency Buffer & Capital Adequacy Assessment</span>
+    </div>
+    <div class="card-body">
+      <div style="padding: 1.25rem; background: #fff1f2; border: 1px solid #fecdd3; border-radius: var(--radius-sm); color: #9f1239; margin-bottom: 1.25rem;">
+        <strong>⚠️ Capital Adequacy Impact:</strong>
+        <p id="st-capital-summary" style="margin-top: 0.5rem; font-size: 0.85rem; line-height: 1.5;">
+          Evaluating stress test scenario impact...
+        </p>
+      </div>
+      <p style="font-size: 0.82rem; color: var(--text-muted);">
+        Actuarial Commentary: In an insurance underwriting environment, adverse stress scenarios mandate 
+        solvency capital buffer adjustments to safeguard the policyholder surplus against compound tail events.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+<!-- Page 4: What-If Analysis Fragment -->
+<div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+  <!-- Baseline Policy -->
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Baseline Policy Profile</span>
+    </div>
+    <div class="card-body">
+      <form id="what-if-base-form" class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Driver Age</label>
+          <input type="number" class="form-control" name="DrivAge" value="30">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bonus-Malus</label>
+          <input type="number" class="form-control" name="BonusMalus" value="85">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Veh Power</label>
+          <input type="number" class="form-control" name="VehPower" value="7">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Area</label>
+          <select class="form-control" name="Area">
+            <option value="A">Area A</option>
+            <option value="C" selected>Area C</option>
+            <option value="E">Area E</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Density</label>
+          <input type="number" class="form-control" name="Density" value="800">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Exposure (Yrs)</label>
+          <input type="number" step="0.1" class="form-control" name="Exposure" value="1.0">
+        </div>
+        <input type="hidden" name="VehAge" value="6">
+        <input type="hidden" name="VehBrand" value="B1">
+        <input type="hidden" name="VehGas" value="Regular">
+        <input type="hidden" name="Region" value="R24">
+      </form>
+    </div>
+  </div>
+
+  <!-- Revised Policy -->
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Revised Policy Profile (What-If)</span>
+    </div>
+    <div class="card-body">
+      <form id="what-if-rev-form" class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Driver Age</label>
+          <input type="number" class="form-control" name="DrivAge" value="30">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bonus-Malus</label>
+          <input type="number" class="form-control" name="BonusMalus" value="50">
+          <span class="form-help">Improved rating (e.g. claim-free year)</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Veh Power</label>
+          <input type="number" class="form-control" name="VehPower" value="7">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Area</label>
+          <select class="form-control" name="Area">
+            <option value="A">Area A</option>
+            <option value="C" selected>Area C</option>
+            <option value="E">Area E</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Density</label>
+          <input type="number" class="form-control" name="Density" value="800">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Exposure (Yrs)</label>
+          <input type="number" step="0.1" class="form-control" name="Exposure" value="1.0">
+        </div>
+        <input type="hidden" name="VehAge" value="6">
+        <input type="hidden" name="VehBrand" value="B1">
+        <input type="hidden" name="VehGas" value="Regular">
+        <input type="hidden" name="Region" value="R24">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; margin-bottom: 1.5rem;">
+  <button class="btn btn-primary" onclick="pricingModule.runWhatIf()">Evaluate What-If Impact →</button>
+</div>
+
+<div id="what-if-results" class="dashboard-grid" style="display: none;">
+  <div class="card col-5">
+    <div class="card-header">
+      <span class="card-title">Impact Summary</span>
+    </div>
+    <div class="card-body">
+      <div class="waterfall-list">
+        <div class="waterfall-item">
+          <span>Commercial Premium:</span>
+          <div>
+            <span id="wi-base-premium">--</span> → <span id="wi-rev-premium">--</span>
+            <div id="wi-delta-premium" style="margin-top: 3px;">--</div>
+          </div>
+        </div>
+        <div class="waterfall-item">
+          <span>Annual Pure Premium:</span>
+          <div>
+            <span id="wi-base-pure">--</span> → <span id="wi-rev-pure">--</span>
+            <div id="wi-delta-pure" style="margin-top: 3px;">--</div>
+          </div>
+        </div>
+        <div class="waterfall-item">
+          <span>Claim Frequency Rate:</span>
+          <div>
+            <span id="wi-base-freq">--</span> → <span id="wi-rev-freq">--</span>
+            <div id="wi-delta-freq" style="margin-top: 3px;">--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card col-7">
+    <div class="card-header">
+      <span class="card-title">Pricing Component Comparison</span>
+    </div>
+    <div class="card-body" style="height: 280px; position: relative;">
+      <canvas id="what-if-chart-canvas"></canvas>
+    </div>
+  </div>
+</div>

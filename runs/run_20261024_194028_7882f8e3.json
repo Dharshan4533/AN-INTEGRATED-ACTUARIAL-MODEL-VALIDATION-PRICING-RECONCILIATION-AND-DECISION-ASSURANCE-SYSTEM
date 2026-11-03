@@ -1,0 +1,100 @@
+{
+  "run_id": "run_20261024_194028_7882f8e3",
+  "timestamp": "2026-10-24T19:40:28.969326+00:00",
+  "run_type": "RECONCILIATION",
+  "user_notes": "Standard actuarial execution",
+  "artifact_checksums": {
+    "preprocessor": "bc822636982211fcdc3069c19ea105ad3e1ed13139f87db0a39011d039195c8c",
+    "frequency_glm": "87ff007e5cd6c6a041cfa7de638cc3bc203cf76348f384a9b7086bef480192e8",
+    "severity_glm": "217ff933f8f6e2b773fc9d64bcee2c5b57faffea1b2fe8a68ba82bd8a3382262",
+    "frequency_nb2": "5b2d2e5ee0d244f1f3151c177a4be1f9011333b07b3029753f2533e88419b08a",
+    "hgb_poisson": "74c7de2ec2568fad35e2f6588f678dd2440114a3483aea3cca85c793bb14f4b3",
+    "hgb_gamma": "e3a9aa925a645b317a1b28f6270b3010b72ea563a34cf5ce75c652447edbfb0a",
+    "freMTPL2freq": "6577226166e0e83efe52a431141f1ff5262a4d8fe6626c1d53912cc8943a9893",
+    "freMTPL2sev": "8cf0e0d63cb252a9a5eded463e0a4bbf542cadeb938f50e064a6d43e23d1ff5c"
+  },
+  "environment": {
+    "python_version": "3.13.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "statsmodels": "0.15.0",
+      "scikit_learn": "1.9.1"
+    }
+  },
+  "inputs": {
+    "policy_a": {
+      "VehPower": 6,
+      "VehAge": 4,
+      "DrivAge": 38,
+      "BonusMalus": 50,
+      "VehBrand": "B1",
+      "VehGas": "Regular",
+      "Area": "C",
+      "Density": 600.0,
+      "Region": "R24",
+      "Exposure": 1.0,
+      "convert_to_inr": true
+    },
+    "policy_b": {
+      "VehPower": 6,
+      "VehAge": 4,
+      "DrivAge": 22,
+      "BonusMalus": 100,
+      "VehBrand": "B1",
+      "VehGas": "Regular",
+      "Area": "C",
+      "Density": 600.0,
+      "Region": "R24",
+      "Exposure": 1.0,
+      "convert_to_inr": true
+    },
+    "model_family_a": "poisson",
+    "model_family_b": "poisson",
+    "convert_to_inr": true
+  },
+  "assumptions": {
+    "assumptions_a": {
+      "fixed_expense": 30.0,
+      "variable_expense_ratio": 0.15,
+      "risk_margin": 0.05,
+      "profit_margin": 0.05,
+      "tax_rate": 0.18,
+      "currency": "EUR",
+      "inr_exchange_rate": 90.0,
+      "exchange_rate_source": "ECB / Financial Reference Benchmark 2026",
+      "market_context": "French Motor Third-Party Liability research models"
+    },
+    "assumptions_b": {
+      "fixed_expense": 30.0,
+      "variable_expense_ratio": 0.15,
+      "risk_margin": 0.05,
+      "profit_margin": 0.05,
+      "tax_rate": 0.18,
+      "currency": "EUR",
+      "inr_exchange_rate": 90.0,
+      "exchange_rate_source": "ECB / Financial Reference Benchmark 2026",
+      "market_context": "French Motor Third-Party Liability research models"
+    }
+  },
+  "unrounded_calculation_trace": {
+    "premium_a": 282.079090573114,
+    "premium_b": 790.1450556052145,
+    "delta_pure_risk": 508.06596503210045,
+    "delta_model": 0.0,
+    "delta_exposure": 0.0,
+    "delta_assumptions": 0.0,
+    "delta_tax": 0.0,
+    "total_difference": 508.06596503210045,
+    "sum_of_deltas": 508.06596503210045,
+    "reconciliation_error": 0.0
+  },
+  "outputs": {
+    "premium_a": 25387.12,
+    "premium_b": 71113.06,
+    "total_difference": 45725.94,
+    "is_exact_reconciliation": true,
+    "currency": "INR"
+  }
+}

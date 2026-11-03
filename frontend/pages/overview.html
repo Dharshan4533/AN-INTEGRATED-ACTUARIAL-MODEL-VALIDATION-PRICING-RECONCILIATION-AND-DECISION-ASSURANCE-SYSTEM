@@ -1,0 +1,74 @@
+<!-- Page 1: Overview Dashboard Fragment -->
+<div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+  <div class="col-3 kpi-tile info">
+    <span class="kpi-label">Policies Analyzed <span>📂</span></span>
+    <span class="kpi-value" id="ov-kpi-policies">1,000</span>
+    <span class="kpi-subtext">Active Benchmark Portfolio</span>
+  </div>
+  <div class="col-3 kpi-tile">
+    <span class="kpi-label">Earned Exposure <span>⏱️</span></span>
+    <span class="kpi-value" id="ov-kpi-exposure">538 Yrs</span>
+    <span class="kpi-subtext">Cumulative Risk Exposure</span>
+  </div>
+  <div class="col-3 kpi-tile success">
+    <span class="kpi-label">Frequency O/E Ratio <span>🎯</span></span>
+    <span class="kpi-value" id="ov-kpi-oe">1.0025</span>
+    <span class="kpi-subtext">Test Set Poisson Calibration</span>
+  </div>
+  <div class="col-3 kpi-tile warning">
+    <span class="kpi-label">Average Claim Severity <span>💶</span></span>
+    <span class="kpi-value" id="ov-kpi-mean-sev">1,693 €</span>
+    <span class="kpi-subtext">Expected Mean Severity (Gamma GLM)</span>
+  </div>
+</div>
+
+<div class="dashboard-grid">
+  <div class="card col-5">
+    <div class="card-header">
+      <span class="card-title">Portfolio Risk Tier Composition</span>
+    </div>
+    <div class="card-body" style="height: 320px; position: relative;">
+      <canvas id="overview-risk-chart"></canvas>
+    </div>
+    <div class="card-footer">
+      <span>Classified by pure premium actuarial quantiles</span>
+    </div>
+  </div>
+
+  <div class="card col-7">
+    <div class="card-header">
+      <span class="card-title">Decision Support System Capabilities</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        This system provides comprehensive statistical, machine learning, and actuarial decision support for motor third-party liability underwriters and pricing actuaries:
+      </p>
+      <div class="waterfall-list">
+        <div class="waterfall-item">
+          <span><strong>1. Frequency & Severity Modeling</strong></span>
+          <span>Poisson GLM with log-exposure offset & Gamma GLM</span>
+        </div>
+        <div class="waterfall-item">
+          <span><strong>2. Transparent Commercial Pricing</strong></span>
+          <span>Configurable expense loadings, risk margins & statutory taxes</span>
+        </div>
+        <div class="waterfall-item">
+          <span><strong>3. Multi-Profile Comparison</strong></span>
+          <span>Evaluate 2 to 5 policyholder profiles with identical models</span>
+        </div>
+        <div class="waterfall-item">
+          <span><strong>4. What-If & Sensitivity Analysis</strong></span>
+          <span>Examine premium and frequency elasticity to rating shifts</span>
+        </div>
+        <div class="waterfall-item">
+          <span><strong>5. Tail Risk & Solvency Simulation</strong></span>
+          <span>Monte Carlo simulation computing VaR (95%, 99%, 99.5%) & TVaR</span>
+        </div>
+      </div>
+      <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem;">
+        <button class="btn btn-primary" onclick="app.navigateTo('policy-pricing')">Price a Policy Profile →</button>
+        <button class="btn btn-secondary" onclick="app.navigateTo('portfolio')">Simulate Portfolio Losses →</button>
+      </div>
+    </div>
+  </div>
+</div>

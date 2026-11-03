@@ -1,0 +1,219 @@
+{
+  "dataset_origin": "French Motor Third-Party Liability Insurance (freMTPL2)",
+  "evaluation_partition": "Held-out 20% test set (135,603 policyholders)",
+  "audit_objective": "Model calibration (O/E) and segment parity auditing across demographic and geographic cohorts",
+  "regulatory_disclaimer": "Fairness and disparity metrics represent diagnostic signals for actuarial model validation and segment auditing. They do not constitute legal determinations of discrimination under insurance law.",
+  "demographic_cohort_audit": {
+    "factor_name": "Driver Age Cohorts",
+    "benchmark_group": "Prime (25-45)",
+    "segments": [
+      {
+        "segment_name": "Youth (<25)",
+        "policy_count": 7706,
+        "exposure_years": 3180.84,
+        "observed_claims": 542,
+        "expected_claims": 515.82,
+        "observed_claim_rate": 0.1704,
+        "rate_ci_95": [
+          0.156,
+          0.1847
+        ],
+        "oe_ratio": 1.0508,
+        "oe_ci_95": [
+          0.9623,
+          1.1392
+        ],
+        "mean_annual_pure_premium": 302.27,
+        "disparity_ratio_vs_benchmark": 1.6031,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Prime (25-45)",
+        "policy_count": 63991,
+        "exposure_years": 31404.48,
+        "observed_claims": 3033,
+        "expected_claims": 3150.19,
+        "observed_claim_rate": 0.0966,
+        "rate_ci_95": [
+          0.0931,
+          0.1
+        ],
+        "oe_ratio": 0.9628,
+        "oe_ci_95": [
+          0.9285,
+          0.9971
+        ],
+        "mean_annual_pure_premium": 188.55,
+        "disparity_ratio_vs_benchmark": 1.0,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Mature (45-65)",
+        "policy_count": 50611,
+        "exposure_years": 28270.74,
+        "observed_claims": 2800,
+        "expected_claims": 2647.29,
+        "observed_claim_rate": 0.099,
+        "rate_ci_95": [
+          0.0954,
+          0.1027
+        ],
+        "oe_ratio": 1.0577,
+        "oe_ci_95": [
+          1.0185,
+          1.0969
+        ],
+        "mean_annual_pure_premium": 175.25,
+        "disparity_ratio_vs_benchmark": 0.9295,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Senior (65+)",
+        "policy_count": 13295,
+        "exposure_years": 8756.08,
+        "observed_claims": 850,
+        "expected_claims": 893.78,
+        "observed_claim_rate": 0.0971,
+        "rate_ci_95": [
+          0.0905,
+          0.1036
+        ],
+        "oe_ratio": 0.951,
+        "oe_ci_95": [
+          0.8871,
+          1.0149
+        ],
+        "mean_annual_pure_premium": 198.79,
+        "disparity_ratio_vs_benchmark": 1.0543,
+        "sample_size_adequate": true
+      }
+    ]
+  },
+  "geographic_territory_audit": {
+    "factor_name": "Geographic Rating Territories (Neutral Territorial Codes)",
+    "benchmark_group": "Territory Area C",
+    "segments": [
+      {
+        "segment_name": "Territory Area A",
+        "policy_count": 20750,
+        "exposure_years": 12376.2,
+        "observed_claims": 981,
+        "expected_claims": 1018.41,
+        "observed_claim_rate": 0.0793,
+        "rate_ci_95": [
+          0.0743,
+          0.0842
+        ],
+        "oe_ratio": 0.9633,
+        "oe_ci_95": [
+          0.903,
+          1.0235
+        ],
+        "mean_annual_pure_premium": 152.92,
+        "disparity_ratio_vs_benchmark": 0.8954,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Territory Area B",
+        "policy_count": 15171,
+        "exposure_years": 8619.64,
+        "observed_claims": 742,
+        "expected_claims": 763.7,
+        "observed_claim_rate": 0.0861,
+        "rate_ci_95": [
+          0.0799,
+          0.0923
+        ],
+        "oe_ratio": 0.9716,
+        "oe_ci_95": [
+          0.9017,
+          1.0415
+        ],
+        "mean_annual_pure_premium": 165.0,
+        "disparity_ratio_vs_benchmark": 0.9661,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Territory Area C",
+        "policy_count": 38278,
+        "exposure_years": 20889.23,
+        "observed_claims": 2006,
+        "expected_claims": 1961.0,
+        "observed_claim_rate": 0.096,
+        "rate_ci_95": [
+          0.0918,
+          0.1002
+        ],
+        "oe_ratio": 1.0229,
+        "oe_ci_95": [
+          0.9782,
+          1.0677
+        ],
+        "mean_annual_pure_premium": 170.78,
+        "disparity_ratio_vs_benchmark": 1.0,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Territory Area D",
+        "policy_count": 30402,
+        "exposure_years": 15432.35,
+        "observed_claims": 1706,
+        "expected_claims": 1681.99,
+        "observed_claim_rate": 0.1105,
+        "rate_ci_95": [
+          0.1053,
+          0.1158
+        ],
+        "oe_ratio": 1.0143,
+        "oe_ci_95": [
+          0.9661,
+          1.0624
+        ],
+        "mean_annual_pure_premium": 207.4,
+        "disparity_ratio_vs_benchmark": 1.2144,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Territory Area E",
+        "policy_count": 27379,
+        "exposure_years": 12666.14,
+        "observed_claims": 1567,
+        "expected_claims": 1556.18,
+        "observed_claim_rate": 0.1237,
+        "rate_ci_95": [
+          0.1176,
+          0.1298
+        ],
+        "oe_ratio": 1.007,
+        "oe_ci_95": [
+          0.9571,
+          1.0568
+        ],
+        "mean_annual_pure_premium": 239.6,
+        "disparity_ratio_vs_benchmark": 1.403,
+        "sample_size_adequate": true
+      },
+      {
+        "segment_name": "Territory Area F",
+        "policy_count": 3623,
+        "exposure_years": 1628.59,
+        "observed_claims": 223,
+        "expected_claims": 225.79,
+        "observed_claim_rate": 0.1369,
+        "rate_ci_95": [
+          0.119,
+          0.1549
+        ],
+        "oe_ratio": 0.9876,
+        "oe_ci_95": [
+          0.858,
+          1.1173
+        ],
+        "mean_annual_pure_premium": 228.67,
+        "disparity_ratio_vs_benchmark": 1.339,
+        "sample_size_adequate": true
+      }
+    ],
+    "neutrality_note": "Area codes A through F reflect neutral administrative density and geographic classifications adhering strictly to neutral territorial code reporting standards."
+  }
+}

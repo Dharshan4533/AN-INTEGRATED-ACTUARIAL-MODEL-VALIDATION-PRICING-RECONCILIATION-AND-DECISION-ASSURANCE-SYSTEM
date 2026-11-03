@@ -1,0 +1,34 @@
+<!-- Page 5: Explainability Fragment -->
+<div class="disclaimer-banner" style="margin-bottom: 1.5rem; border-radius: var(--radius-sm);">
+  <span>ℹ️ <strong>Actuarial Explainability Principle:</strong> Feature attributions reflect statistical model correlations on the French MTPL dataset and do not imply causal relationships.</span>
+</div>
+
+<div class="dashboard-grid">
+  <!-- Frequency Global Importance -->
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Frequency Model Global Feature Importance</span>
+      <span class="card-subtitle">Poisson GLM</span>
+    </div>
+    <div class="card-body" style="height: 350px; position: relative;">
+      <canvas id="shap-freq-importance-chart"></canvas>
+    </div>
+    <div class="card-footer">
+      <span>Mean absolute effect on log claim frequency across held-out test data</span>
+    </div>
+  </div>
+
+  <!-- Severity Global Importance -->
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Severity Model Global Feature Importance</span>
+      <span class="card-subtitle">Gamma GLM</span>
+    </div>
+    <div class="card-body" style="height: 350px; position: relative;">
+      <canvas id="shap-sev-importance-chart"></canvas>
+    </div>
+    <div class="card-footer">
+      <span>Mean absolute effect on log claim amount across positive claims</span>
+    </div>
+  </div>
+</div>

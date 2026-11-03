@@ -1,0 +1,208 @@
+<!-- Page 2: Policy Pricing Fragment -->
+<div class="dashboard-grid">
+  <!-- Policy Form -->
+  <div class="card col-5">
+    <div class="card-header">
+      <span class="card-title">Policyholder Characteristics</span>
+    </div>
+    <div class="card-body">
+      <form id="pricing-form" onsubmit="event.preventDefault(); pricingModule.calculateSingleQuote();">
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <div class="form-label">
+            <span>Driver Age (Years)</span>
+            <span id="pricing-form-DrivAge-val" class="range-badge">45</span>
+          </div>
+          <input type="range" class="range-slider" name="DrivAge" min="18" max="100" value="45" data-badge="pricing-form-DrivAge-val">
+          <span class="form-help">Driver age from 18 to 100 years.</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <div class="form-label">
+            <span>Bonus-Malus Statutory Coefficient</span>
+            <span id="pricing-form-BonusMalus-val" class="range-badge">50</span>
+          </div>
+          <input type="range" class="range-slider" name="BonusMalus" min="50" max="230" value="50" data-badge="pricing-form-BonusMalus-val">
+          <span class="form-help">French scale: 50 = 50% discount; 100 = neutral; 230 = 130% surcharge.</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <div class="form-label">
+            <span>Vehicle Power Group</span>
+            <span id="pricing-form-VehPower-val" class="range-badge">6</span>
+          </div>
+          <input type="range" class="range-slider" name="VehPower" min="4" max="15" value="6" data-badge="pricing-form-VehPower-val">
+        </div>
+
+        <div class="form-grid" style="margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Vehicle Age (Yrs)</label>
+            <input type="number" class="form-control" name="VehAge" value="5" min="0" max="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Fuel Type</label>
+            <select class="form-control" name="VehGas">
+              <option value="Regular" selected>Regular (Gasoline)</option>
+              <option value="Diesel">Diesel</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-bottom: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Geographic Area</label>
+            <select class="form-control" name="Area">
+              <option value="A">Area A (Rural)</option>
+              <option value="B">Area B</option>
+              <option value="C" selected>Area C (Suburban)</option>
+              <option value="D">Area D</option>
+              <option value="E">Area E (Urban)</option>
+              <option value="F">Area F (High Density)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Vehicle Brand</label>
+            <select class="form-control" name="VehBrand">
+              <option value="B1" selected>B1 (Standard)</option>
+              <option value="B2">B2 (Economy)</option>
+              <option value="B3">B3</option>
+              <option value="B12">B12 (Domestic)</option>
+              <option value="B14">B14 (Premium)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-bottom: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label">Population Density</label>
+            <input type="number" class="form-control" name="Density" value="600" min="1" max="30000">
+            <span class="form-help">Inhabitants per km²</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Exposure Term (Yrs)</label>
+            <input type="number" step="0.1" class="form-control" name="Exposure" value="1.0" min="0.1" max="2.0">
+            <span class="form-help">Coverage duration (1.0 = 1 yr)</span>
+          </div>
+        </div>
+
+        <input type="hidden" name="Region" value="R24">
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Calculate Actuarial Premium
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pricing Output Result -->
+  <div class="col-7">
+    <div id="pricing-loading" class="card loading-overlay">
+      <div class="spinner"></div>
+      <span>Computing GLM predictions and actuarial loadings...</span>
+    </div>
+
+    <div id="pricing-result">
+      <!-- Premium Hero Banner -->
+      <div class="pricing-quote-banner">
+        <div class="quote-hero-left">
+          <h3>Calculated Commercial Premium</h3>
+          <div class="quote-hero-premium" id="res-total-premium">--</div>
+          <div class="quote-hero-breakdown-mini">
+            <span>Pure Premium (Annual): <strong id="res-pure-premium-sub">--</strong></span>
+            <span>Term Expected Loss: <strong id="res-expected-loss-sub">--</strong></span>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div id="res-risk-tier-badge" class="badge badge-moderate" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+            Moderate Risk
+          </div>
+          <div id="res-risk-tier-desc" style="font-size: 0.75rem; color: #cbd5e1; margin-top: 0.5rem; max-width: 200px;">
+            Standard market risk profile.
+          </div>
+        </div>
+      </div>
+
+      <!-- Actuarial Metrics Grid -->
+      <div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+        <div class="col-3 kpi-tile info">
+          <span class="kpi-label">Annual Frequency</span>
+          <span class="kpi-value" id="res-kpi-freq">--</span>
+          <span class="kpi-subtext">Poisson GLM (Rate/Yr)</span>
+        </div>
+        <div class="col-3 kpi-tile">
+          <span class="kpi-label">Expected Severity</span>
+          <span class="kpi-value" id="res-kpi-sev">--</span>
+          <span class="kpi-subtext">Gamma GLM Cost/Claim</span>
+        </div>
+        <div class="col-3 kpi-tile">
+          <span class="kpi-label">Term Claim Count</span>
+          <span class="kpi-value" id="res-kpi-claims-term">--</span>
+          <span class="kpi-subtext">Freq × Exposure</span>
+        </div>
+        <div class="col-3 kpi-tile">
+          <span class="kpi-label">Policy Exposure</span>
+          <span class="kpi-value" id="res-kpi-exposure">1.0 Year</span>
+          <span class="kpi-subtext">Earned Coverage Period</span>
+        </div>
+      </div>
+
+      <!-- Step-by-Step Actuarial Loading Breakdown -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <span class="card-title">Commercial Tariff Loading Breakdown</span>
+        </div>
+        <div class="card-body">
+          <div class="waterfall-list">
+            <div class="waterfall-item">
+              <span>Annual Pure Premium (Frequency × Severity)</span>
+              <strong id="res-bd-pure">--</strong>
+            </div>
+            <div class="waterfall-item">
+              <span>Expected Loss for Policy Term (Pure Premium × Exposure)</span>
+              <strong id="res-bd-loss">--</strong>
+            </div>
+            <div class="waterfall-item">
+              <span>Fixed Administrative Expense</span>
+              <strong id="res-bd-fixed">--</strong>
+            </div>
+            <div class="waterfall-item">
+              <span>Variable Acquisition Expense (15%)</span>
+              <strong id="res-bd-var">--</strong>
+            </div>
+            <div class="waterfall-item">
+              <span>Cost of Capital / Risk Margin (5%)</span>
+              <strong id="res-bd-risk">--</strong>
+            </div>
+            <div class="waterfall-item">
+              <span>Target Underwriting Profit Margin (5%)</span>
+              <strong id="res-bd-profit">--</strong>
+            </div>
+            <div class="waterfall-item highlight">
+              <span>Commercial Premium (Before Tax)</span>
+              <strong id="res-bd-pre-tax">--</strong>
+            </div>
+            <div class="waterfall-item">
+              <span>Statutory Insurance Duty / Tax (18%)</span>
+              <strong id="res-bd-tax">--</strong>
+            </div>
+            <div class="waterfall-item highlight" style="font-size: 1rem; background: #e0e7ff;">
+              <span>Total Payable Commercial Premium</span>
+              <strong id="res-bd-total" style="color: var(--primary);">--</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Attributed Risk Factors -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Key Risk Drivers (Local Feature Attribution)</span>
+        </div>
+        <div class="card-body">
+          <div id="res-drivers-list" class="waterfall-list">
+            <!-- Dynamic drivers injected here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

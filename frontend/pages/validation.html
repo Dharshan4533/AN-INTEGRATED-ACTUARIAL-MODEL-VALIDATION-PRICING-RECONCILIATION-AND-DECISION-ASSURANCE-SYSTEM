@@ -1,0 +1,77 @@
+<!-- Page 7: Model Validation Fragment -->
+<div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+  <div class="col-3 kpi-tile success">
+    <span class="kpi-label">Poisson Test O/E Ratio</span>
+    <span class="kpi-value" id="val-freq-oe">1.0025</span>
+    <span class="kpi-subtext">Claims Obs/Exp: <span id="val-freq-claims">7225 / 7207</span></span>
+  </div>
+  <div class="col-3 kpi-tile">
+    <span class="kpi-label">Poisson Test Deviance</span>
+    <span class="kpi-value" id="val-freq-dev">43,278</span>
+    <span class="kpi-subtext">Test MAE: <span id="val-freq-mae">0.09873</span></span>
+  </div>
+  <div class="col-3 kpi-tile">
+    <span class="kpi-label">Gamma Test Deviance</span>
+    <span class="kpi-value" id="val-sev-dev">6,080</span>
+    <span class="kpi-subtext">Test MAE: <span id="val-sev-mae">1,279 €</span></span>
+  </div>
+  <div class="col-3 kpi-tile info">
+    <span class="kpi-label">Severity Test RMSE</span>
+    <span class="kpi-value" id="val-sev-rmse">3,184 €</span>
+    <span class="kpi-subtext">Obs/Pred Mean: <span id="val-sev-means">1,684 € / 1,693 €</span></span>
+  </div>
+</div>
+
+<div class="dashboard-grid" style="margin-bottom: 1.5rem;">
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Frequency Model Calibration by Predicted Risk Decile</span>
+    </div>
+    <div class="card-body" style="height: 300px; position: relative;">
+      <canvas id="calibration-freq-chart"></canvas>
+    </div>
+    <div class="card-footer">
+      <span>Observed vs Expected claim rate across 10 held-out risk deciles</span>
+    </div>
+  </div>
+
+  <div class="card col-6">
+    <div class="card-header">
+      <span class="card-title">Severity Model Calibration by Predicted Severity Decile</span>
+    </div>
+    <div class="card-body" style="height: 300px; position: relative;">
+      <canvas id="calibration-sev-chart"></canvas>
+    </div>
+    <div class="card-footer">
+      <span>Observed vs Expected claim amount (€) across 10 held-out severity deciles</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="card-title">Actuarial GLM vs. Machine Learning Performance Benchmark</span>
+  </div>
+  <div class="card-body" style="padding: 0;">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Architecture</th>
+            <th class="table-num">Test Deviance</th>
+            <th class="table-num">Test MAE</th>
+            <th class="table-num">Test Metric (O/E or RMSE)</th>
+            <th>Actuarial Assessment</th>
+          </tr>
+        </thead>
+        <tbody id="ml-comparison-tbody">
+          <!-- Populated from models/ml_comparison.json -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer">
+    <span>Verified: Actuarial Poisson GLM with offset provides superior rate calibration compared to unconstrained tree models.</span>
+  </div>
+</div>

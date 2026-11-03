@@ -1,0 +1,33 @@
+{
+  "manual_id": "manual_v1_old",
+  "name": "Personal Auto Rating Manual 2025 (Baseline)",
+  "version": "1.0.0",
+  "effective_date": "2025-01-01",
+  "line_of_business": "Personal Auto",
+  "currency": "USD",
+  "currency_symbol": "$",
+  "base_rate": 400.0,
+  "factor_tables": {
+    "territory": {
+      "Urban": 1.20,
+      "Suburban": 1.00,
+      "Rural": 0.80
+    }
+  },
+  "additive_fees": {
+    "policy_fee": 25.0
+  },
+  "min_premium": null,
+  "max_premium": null,
+  "rounding_rule": {
+    "precision": 2,
+    "method": "ROUND_HALF_UP"
+  },
+  "calculation_order": [
+    "base_rate",
+    "multiplicative_factors",
+    "additive_fees",
+    "min_max_clamping",
+    "rounding"
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "run_id": "rate_change_20261025_060501_89dfa770",
+  "timestamp": "2026-10-25T06:05:01.020438+00:00",
+  "run_type": "RATE_CHANGE_ASSURANCE",
+  "user_notes": "Rate change assurance evaluation",
+  "old_manual_id": "manual_v1_old",
+  "old_manual_hash": "2279e84c33c297ff02d75a1255a8618f9567545d5bf32999e409bbc6b72e38d1",
+  "new_manual_id": "manual_v2_new",
+  "new_manual_hash": "7b629b03f274fbfbf0e225eb0840f82f032b39340b8a379f3a7812964f2442f3",
+  "census_count": 5,
+  "census_hash": "386a6e761f580a8c2c6407cfe26700c54c38422a3a66c53701cdd544650dffa7",
+  "replay_token": "0f11ebea903b30440f765a885ff9e348fb5ba50483d280e7d09a8d21e1181b42",
+  "replay_payload": {
+    "schema_version": "1.0.0",
+    "old_manual_hash": "2279e84c33c297ff02d75a1255a8618f9567545d5bf32999e409bbc6b72e38d1",
+    "new_manual_hash": "7b629b03f274fbfbf0e225eb0840f82f032b39340b8a379f3a7812964f2442f3",
+    "census_hash": "386a6e761f580a8c2c6407cfe26700c54c38422a3a66c53701cdd544650dffa7",
+    "pipeline_configuration": [
+      {
+        "step_type": "BASE_RATE",
+        "variable": null,
+        "fee_name": null,
+        "is_taxable": null,
+        "is_taxable_deduction": null,
+        "tax_rate": null,
+        "tax_base": null,
+        "min_premium": null,
+        "max_premium": null,
+        "clamp_stage": null,
+        "rule": null,
+        "precision": null,
+        "precision_source": null
+      },
+      {
+        "step_type": "MULTIPLICATIVE_FACTOR",
+        "variable": "territory",
+        "fee_name": null,
+        "is_taxable": null,
+        "is_taxable_deduction": null,
+        "tax_rate": null,
+        "tax_base": null,
+        "min_premium": null,
+        "max_premium": null,
+        "clamp_stage": null,
+        "rule": null,
+        "precision": null,
+        "precision_source": null
+      },
+      {
+        "step_type": "ADDITIVE_FEE",
+        "variable": null,
+        "fee_name": "policy_fee",
+        "is_taxable": false,
+        "is_taxable_deduction": null,
+        "tax_rate": null,
+        "tax_base": null,
+        "min_premium": null,
+        "max_premium": null,
+        "clamp_stage": null,
+        "rule": null,
+        "precision": null,
+        "precision_source": null
+      },
+      {
+        "step_type": "FINAL_ROUNDING",
+        "variable": null,
+        "fee_name": null,
+        "is_taxable": null,
+        "is_taxable_deduction": null,
+        "tax_rate": null,
+        "tax_base": null,
+        "min_premium": null,
+        "max_premium": null,
+        "clamp_stage": null,
+        "rule": "ROUND_HALF_UP",
+        "precision": 2,
+        "precision_source": null
+      }
+    ],
+    "rounding_rule": {
+      "method": {
+        "precision": 2,
+        "method": "ROUND_HALF_UP",
+        "use_iso_minor_units": true
+      },
+      "precision": 2
+    },
+    "currency": "USD",
+    "software_versions": {
+      "python": "3.13.0",
+      "rating_engine": "1.0.0"
+    },
+    "execution_settings": {
+      "decimal_context_precision": 28
+    }
+  },
+  "reconciliation_summary": {
+    "old_manual_id": "manual_v1_old",
+    "old_version": "1.0.0",
+    "new_manual_id": "manual_v2_new",
+    "new_version": "2.0.0",
+    "currency": "USD",
+    "total_submitted_policies": 5,
+    "total_valid_policies": 5,
+    "total_failed_policies": 0,
+    "total_ineligible_policies": 0,
+    "total_old_premium": 2125.0,
+    "total_new_premium": 2394.0,
+    "aggregate_dollar_change": 269.0,
+    "aggregate_percentage_change": 12.66,
+    "sum_individual_deltas": 269.0,
+    "aggregate_reconciliation_residual": 0.0,
+    "is_aggregate_reconciled": true,
+    "count_rate_increase": 5,
+    "count_rate_decrease": 0,
+    "count_rate_unchanged": 0,
+    "pct_rate_increase": 100.0,
+    "pct_rate_decrease": 0.0,
+    "pct_rate_unchanged": 0.0,
+    "min_dollar_change": 15.0,
+    "max_dollar_change": 97.0,
+    "min_pct_change": 4.35,
+    "max_pct_change": 19.21,
+    "pct_change_percentiles": {
+      "p10": 4.35,
+      "p25": 4.35,
+      "p50": 10.59,
+      "p75": 19.21,
+      "p90": 19.21,
+      "p99": 19.21
+    },
+    "top_increases": [
+      {
+        "policy_id": "POL-001",
+        "old": 505.0,
+        "new": 602.0,
+        "delta": 97.0,
+        "pct": 19.21
+      },
+      {
+        "policy_id": "POL-004",
+        "old": 505.0,
+        "new": 602.0,
+        "delta": 97.0,
+        "pct": 19.21
+      },
+      {
+        "policy_id": "POL-002",
+        "old": 425.0,
+        "new": 470.0,
+        "delta": 45.0,
+        "pct": 10.59
+      },
+      {
+        "policy_id": "POL-003",
+        "old": 345.0,
+        "new": 360.0,
+        "delta": 15.0,
+        "pct": 4.35
+      },
+      {
+        "policy_id": "POL-005",
+        "old": 345.0,
+        "new": 360.0,
+        "delta": 15.0,
+        "pct": 4.35
+      }
+    ],
+    "top_decreases": [],
+    "segment_impacts": [
+      {
+        "segment_variable": "territory",
+        "segment_value": "Rural",
+        "policy_count": 2,
+        "total_old_premium": 690.0,
+        "total_new_premium": 720.0,
+        "dollar_change": 30.0,
+        "percentage_change": 4.35,
+        "avg_old_premium": 345.0,
+        "avg_new_premium": 360.0
+      },
+      {
+        "segment_variable": "territory",
+        "segment_value": "Suburban",
+        "policy_count": 1,
+        "total_old_premium": 425.0,
+        "total_new_premium": 470.0,
+        "dollar_change": 45.0,
+        "percentage_change": 10.59,
+        "avg_old_premium": 425.0,
+        "avg_new_premium": 470.0
+      },
+      {
+        "segment_variable": "territory",
+        "segment_value": "Urban",
+        "policy_count": 2,
+        "total_old_premium": 1010.0,
+        "total_new_premium": 1204.0,
+        "dollar_change": 194.0,
+        "percentage_change": 19.21,
+        "avg_old_premium": 505.0,
+        "avg_new_premium": 602.0
+      }
+    ]
+  },
+  "verification_summary": {
+    "manual_id": "manual_v2_new",
+    "manual_version": "2.0.0",
+    "currency": "USD",
+    "total_policies_checked": 5,
+    "total_passed": 5,
+    "total_failed": 0,
+    "agreement_rate_pct": 100.0,
+    "max_monetary_discrepancy": 0.0,
+    "max_intermediate_discrepancy": 0.0,
+    "is_100_percent_verified": true,
+    "policy_results": [
+      {
+        "policy_id": "POL-001",
+        "is_verified": true,
+        "primary_premium": 602.0,
+        "independent_premium": 602.0,
+        "discrepancy": 0.0,
+        "intermediate_discrepancy": 0.0,
+        "failure_reasons": []
+      },
+      {
+        "policy_id": "POL-002",
+        "is_verified": true,
+        "primary_premium": 470.0,
+        "independent_premium": 470.0,
+        "discrepancy": 0.0,
+        "intermediate_discrepancy": 0.0,
+        "failure_reasons": []
+      },
+      {
+        "policy_id": "POL-003",
+        "is_verified": true,
+        "primary_premium": 360.0,
+        "independent_premium": 360.0,
+        "discrepancy": 0.0,
+        "intermediate_discrepancy": 0.0,
+        "failure_reasons": []
+      },
+      {
+        "policy_id": "POL-004",
+        "is_verified": true,
+        "primary_premium": 602.0,
+        "independent_premium": 602.0,
+        "discrepancy": 0.0,
+        "intermediate_discrepancy": 0.0,
+        "failure_reasons": []
+      },
+      {
+        "policy_id": "POL-005",
+        "is_verified": true,
+        "primary_premium": 360.0,
+        "independent_premium": 360.0,
+        "discrepancy": 0.0,
+        "intermediate_discrepancy": 0.0,
+        "failure_reasons": []
+      }
+    ],
+    "failure_details": []
+  },
+  "environment": {
+    "python_version": "3.13.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.0.6",
+      "statsmodels": "0.15.0",
+      "scikit_learn": "1.9.1"
+    }
+  }
+}

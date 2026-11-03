@@ -1,0 +1,71 @@
+<!-- Page 6: Portfolio Risk Analysis Fragment -->
+<div class="card" style="margin-bottom: 1.5rem;">
+  <div class="card-header">
+    <span class="card-title">Monte Carlo Portfolio Loss Simulator</span>
+    <button class="btn btn-primary btn-sm" onclick="app.loadPortfolioData()">Run Stochastic Simulation</button>
+  </div>
+  <div class="card-body">
+    <div class="dashboard-grid">
+      <div class="col-3 kpi-tile">
+        <span class="kpi-label">Expected Total Loss</span>
+        <span class="kpi-value" id="port-kpi-total-loss">--</span>
+        <span class="kpi-subtext">Analytical Aggregate Pure Premium</span>
+      </div>
+      <div class="col-3 kpi-tile info">
+        <span class="kpi-label">Mean Simulated Loss</span>
+        <span class="kpi-value" id="port-kpi-mean-sim">--</span>
+        <span class="kpi-subtext">5,000 Monte Carlo Iterations</span>
+      </div>
+      <div class="col-3 kpi-tile warning">
+        <span class="kpi-label">Loss Volatility (Std Dev)</span>
+        <span class="kpi-value" id="port-kpi-std">--</span>
+        <span class="kpi-subtext">Portfolio Aggregate Standard Deviation</span>
+      </div>
+      <div class="col-3 kpi-tile">
+        <span class="kpi-label">Loss Skewness</span>
+        <span class="kpi-value" id="port-kpi-skew">--</span>
+        <span class="kpi-subtext">Right-Tail Skewness</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-grid">
+  <!-- Histogram Chart -->
+  <div class="card col-7">
+    <div class="card-header">
+      <span class="card-title">Aggregate Loss Distribution & 99% VaR Cutoff</span>
+    </div>
+    <div class="card-body" style="height: 350px; position: relative;">
+      <canvas id="portfolio-loss-histogram"></canvas>
+    </div>
+    <div class="card-footer">
+      <span id="port-sim-assumptions">Compound Poisson-Gamma stochastic process.</span>
+    </div>
+  </div>
+
+  <!-- Risk Measures Table -->
+  <div class="card col-5">
+    <div class="card-header">
+      <span class="card-title">Solvency Capital & Tail Risk Measures</span>
+    </div>
+    <div class="card-body" style="padding: 0;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Confidence</th>
+            <th class="table-num">Value at Risk (VaR)</th>
+            <th class="table-num">Tail VaR (TVaR)</th>
+            <th>Standard</th>
+          </tr>
+        </thead>
+        <tbody id="portfolio-var-tbody">
+          <!-- Rows injected here -->
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      <span>TVaR (Expected Shortfall) quantifies average loss in the extreme tail exceeding VaR.</span>
+    </div>
+  </div>
+</div>

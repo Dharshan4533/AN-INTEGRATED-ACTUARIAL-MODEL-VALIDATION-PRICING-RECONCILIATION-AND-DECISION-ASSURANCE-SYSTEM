@@ -1,0 +1,41 @@
+<!-- Page 3: Policy Comparison Fragment -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+  <p style="font-size: 0.85rem; color: var(--text-muted);">
+    Compare 2 to 5 policyholder profiles evaluated with identical models, assumptions, and exposure accounting.
+  </p>
+  <div style="display: flex; gap: 0.5rem;">
+    <button class="btn btn-outline btn-sm" onclick="pricingModule.addComparisonProfile()">+ Add Profile</button>
+    <button class="btn btn-primary btn-sm" onclick="pricingModule.runComparison()">Compare Profiles</button>
+  </div>
+</div>
+
+<div id="comparison-cards-container" class="dashboard-grid" style="margin-bottom: 1.5rem;">
+  <!-- Dynamically populated profile forms -->
+</div>
+
+<div id="comparison-results-card" class="card" style="display: none;">
+  <div class="card-header">
+    <span class="card-title">Actuarial Comparison Matrix</span>
+  </div>
+  <div class="card-body" style="padding: 0;">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Profile</th>
+            <th>Key Characteristics</th>
+            <th>Vehicle & Area</th>
+            <th class="table-num">Annual Freq</th>
+            <th class="table-num">Severity</th>
+            <th class="table-num">Pure Premium</th>
+            <th class="table-num">Commercial Premium</th>
+            <th>Risk Tier</th>
+          </tr>
+        </thead>
+        <tbody id="comparison-results-tbody">
+          <!-- Rows injected here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

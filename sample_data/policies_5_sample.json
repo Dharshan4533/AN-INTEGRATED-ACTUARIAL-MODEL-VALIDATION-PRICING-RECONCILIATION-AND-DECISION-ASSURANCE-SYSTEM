@@ -1,0 +1,67 @@
+[
+  {
+    "policy_id": "POL-001",
+    "territory": "Urban",
+    "expected_old_premium": 505.00,
+    "expected_new_premium": 602.00,
+    "expected_delta": 97.00,
+    "expected_pct_change": 19.21,
+    "expected_attributions": {
+      "base_rate": 48.00,
+      "territory": 44.00,
+      "policy_fee": 5.00
+    }
+  },
+  {
+    "policy_id": "POL-002",
+    "territory": "Suburban",
+    "expected_old_premium": 425.00,
+    "expected_new_premium": 470.00,
+    "expected_delta": 45.00,
+    "expected_pct_change": 10.59,
+    "expected_attributions": {
+      "base_rate": 40.00,
+      "territory": 0.00,
+      "policy_fee": 5.00
+    }
+  },
+  {
+    "policy_id": "POL-003",
+    "territory": "Rural",
+    "expected_old_premium": 345.00,
+    "expected_new_premium": 360.00,
+    "expected_delta": 15.00,
+    "expected_pct_change": 4.35,
+    "expected_attributions": {
+      "base_rate": 32.00,
+      "territory": -22.00,
+      "policy_fee": 5.00
+    }
+  },
+  {
+    "policy_id": "POL-004",
+    "territory": "Urban",
+    "expected_old_premium": 505.00,
+    "expected_new_premium": 602.00,
+    "expected_delta": 97.00,
+    "expected_pct_change": 19.21,
+    "expected_attributions": {
+      "base_rate": 48.00,
+      "territory": 44.00,
+      "policy_fee": 5.00
+    }
+  },
+  {
+    "policy_id": "POL-005",
+    "territory": "Rural",
+    "expected_old_premium": 345.00,
+    "expected_new_premium": 360.00,
+    "expected_delta": 15.00,
+    "expected_pct_change": 4.35,
+    "expected_attributions": {
+      "base_rate": 32.00,
+      "territory": -22.00,
+      "policy_fee": 5.00
+    }
+  }
+]

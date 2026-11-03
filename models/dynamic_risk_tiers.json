@@ -1,0 +1,51 @@
+{
+  "version": "2.0",
+  "methodology": "Empirical quantile calibration on French MTPL benchmark portfolio using trained Poisson-Gamma GLMs",
+  "dataset_context": "French Motor Third-Party Liability Insurance (freMTPL2)",
+  "empirical_quantiles": {
+    "p30": 125.71,
+    "p70": 207.73,
+    "p90": 310.02,
+    "mean_pure_premium": 188.33,
+    "median_pure_premium": 160.41
+  },
+  "business_thresholds": {
+    "low_max": 35.0,
+    "moderate_max": 75.0,
+    "high_max": 160.0
+  },
+  "tiers": [
+    {
+      "name": "Low",
+      "min_val": 0.0,
+      "max_val": 125.71,
+      "badge_color": "green",
+      "description": "Favorable risk profile; lower pure risk than 70% of portfolio.",
+      "target_percentile": "Bottom 30% empirical quantile"
+    },
+    {
+      "name": "Moderate",
+      "min_val": 125.71,
+      "max_val": 207.73,
+      "badge_color": "blue",
+      "description": "Standard market risk profile; 30th to 70th empirical quantile.",
+      "target_percentile": "30th to 70th percentile"
+    },
+    {
+      "name": "High",
+      "min_val": 207.73,
+      "max_val": 310.02,
+      "badge_color": "orange",
+      "description": "Elevated risk profile; 70th to 90th empirical quantile.",
+      "target_percentile": "70th to 90th percentile"
+    },
+    {
+      "name": "Very High",
+      "min_val": 310.02,
+      "max_val": 100000.0,
+      "badge_color": "red",
+      "description": "Substantially heightened risk; top 10% highest expected pure premium.",
+      "target_percentile": "Top 10% risk tail"
+    }
+  ]
+}

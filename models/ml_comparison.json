@@ -1,0 +1,333 @@
+{
+  "frequency": {
+    "Poisson_GLM_statsmodels": {
+      "model_name": "Poisson GLM (statsmodels)",
+      "type": "Actuarial GLM (Baseline)",
+      "exposure_treatment": "Logarithmic offset: log(Exposure)",
+      "poisson_deviance": 43279.84,
+      "mae": 0.09873,
+      "observed_claims": 7225,
+      "expected_claims": 7207.09,
+      "oe_ratio": 1.0025,
+      "calibration_deciles": [
+        {
+          "decile": 1,
+          "policy_count": 13561,
+          "total_exposure": 8665.09,
+          "observed_claims": 389,
+          "expected_claims": 451.67,
+          "observed_rate": 0.0449,
+          "expected_rate": 0.0521,
+          "oe_ratio": 0.8612
+        },
+        {
+          "decile": 2,
+          "policy_count": 13561,
+          "total_exposure": 8580.86,
+          "observed_claims": 559,
+          "expected_claims": 557.55,
+          "observed_rate": 0.0651,
+          "expected_rate": 0.065,
+          "oe_ratio": 1.0026
+        },
+        {
+          "decile": 3,
+          "policy_count": 13559,
+          "total_exposure": 8374.45,
+          "observed_claims": 632,
+          "expected_claims": 619.98,
+          "observed_rate": 0.0755,
+          "expected_rate": 0.074,
+          "oe_ratio": 1.0194
+        },
+        {
+          "decile": 4,
+          "policy_count": 13560,
+          "total_exposure": 8078.2,
+          "observed_claims": 646,
+          "expected_claims": 666.97,
+          "observed_rate": 0.08,
+          "expected_rate": 0.0826,
+          "oe_ratio": 0.9686
+        },
+        {
+          "decile": 5,
+          "policy_count": 13561,
+          "total_exposure": 7791.56,
+          "observed_claims": 698,
+          "expected_claims": 709.68,
+          "observed_rate": 0.0896,
+          "expected_rate": 0.0911,
+          "oe_ratio": 0.9835
+        },
+        {
+          "decile": 6,
+          "policy_count": 13560,
+          "total_exposure": 7090.07,
+          "observed_claims": 763,
+          "expected_claims": 710.92,
+          "observed_rate": 0.1076,
+          "expected_rate": 0.1003,
+          "oe_ratio": 1.0733
+        },
+        {
+          "decile": 7,
+          "policy_count": 13561,
+          "total_exposure": 6414.72,
+          "observed_claims": 736,
+          "expected_claims": 710.87,
+          "observed_rate": 0.1147,
+          "expected_rate": 0.1108,
+          "oe_ratio": 1.0354
+        },
+        {
+          "decile": 8,
+          "policy_count": 13559,
+          "total_exposure": 5878.51,
+          "observed_claims": 769,
+          "expected_claims": 729.58,
+          "observed_rate": 0.1308,
+          "expected_rate": 0.1241,
+          "oe_ratio": 1.054
+        },
+        {
+          "decile": 9,
+          "policy_count": 13560,
+          "total_exposure": 5527.38,
+          "observed_claims": 887,
+          "expected_claims": 814.18,
+          "observed_rate": 0.1605,
+          "expected_rate": 0.1473,
+          "oe_ratio": 1.0894
+        },
+        {
+          "decile": 10,
+          "policy_count": 13561,
+          "total_exposure": 5211.3,
+          "observed_claims": 1146,
+          "expected_claims": 1235.66,
+          "observed_rate": 0.2199,
+          "expected_rate": 0.2371,
+          "oe_ratio": 0.9274
+        }
+      ],
+      "notes": "Standard actuarial model with log-exposure offset; exact rate-making calibration."
+    },
+    "Negative_Binomial_statsmodels": {
+      "model_name": "Negative Binomial NB2 (statsmodels)",
+      "type": "Actuarial Quasi-Poisson / Overdispersed GLM",
+      "exposure_treatment": "Logarithmic offset: log(Exposure)",
+      "poisson_deviance": 43279.91,
+      "mae": 0.09876,
+      "observed_claims": 7225,
+      "expected_claims": 7212.05,
+      "oe_ratio": 1.0018,
+      "notes": "Quasi-Poisson NB2 accounts for overdispersion while maintaining consistent offset structure."
+    },
+    "Poisson_Regressor_sklearn": {
+      "model_name": "Poisson Regressor (scikit-learn L2)",
+      "type": "Regularized Linear Rate Model",
+      "exposure_treatment": "Trained on y=ClaimNb/Exposure with sample_weight=Exposure",
+      "fit_time_seconds": 10.0,
+      "poisson_deviance": 43273.67,
+      "mae": 0.09876,
+      "observed_claims": 7225,
+      "expected_claims": 7210.95,
+      "oe_ratio": 1.0019,
+      "calibration_deciles": [
+        {
+          "decile": 1,
+          "exposure": 8687.76,
+          "observed_claims": 393,
+          "expected_claims": 456.26,
+          "oe_ratio": 0.8614
+        },
+        {
+          "decile": 2,
+          "exposure": 8609.06,
+          "observed_claims": 556,
+          "expected_claims": 561.67,
+          "oe_ratio": 0.9899
+        },
+        {
+          "decile": 3,
+          "exposure": 8413.39,
+          "observed_claims": 636,
+          "expected_claims": 624.53,
+          "oe_ratio": 1.0184
+        },
+        {
+          "decile": 4,
+          "exposure": 8065.08,
+          "observed_claims": 646,
+          "expected_claims": 667.03,
+          "oe_ratio": 0.9685
+        },
+        {
+          "decile": 5,
+          "exposure": 7745.39,
+          "observed_claims": 702,
+          "expected_claims": 705.69,
+          "oe_ratio": 0.9948
+        },
+        {
+          "decile": 6,
+          "exposure": 7135.3,
+          "observed_claims": 782,
+          "expected_claims": 715.74,
+          "oe_ratio": 1.0926
+        },
+        {
+          "decile": 7,
+          "exposure": 6388.05,
+          "observed_claims": 696,
+          "expected_claims": 708.43,
+          "oe_ratio": 0.9825
+        },
+        {
+          "decile": 8,
+          "exposure": 5862.47,
+          "observed_claims": 758,
+          "expected_claims": 728.52,
+          "oe_ratio": 1.0405
+        },
+        {
+          "decile": 9,
+          "exposure": 5498.77,
+          "observed_claims": 909,
+          "expected_claims": 810.15,
+          "oe_ratio": 1.122
+        },
+        {
+          "decile": 10,
+          "exposure": 5206.85,
+          "observed_claims": 1147,
+          "expected_claims": 1232.93,
+          "oe_ratio": 0.9303
+        }
+      ],
+      "notes": "L2-regularized Poisson rate regression; handles multi-collinear dummy features cleanly."
+    },
+    "HistGradientBoosting_Poisson": {
+      "model_name": "HistGradientBoosting (Poisson Loss)",
+      "type": "Non-linear Tree Ensemble",
+      "exposure_treatment": "Trained on rate=ClaimNb/Exposure with sample_weight=Exposure",
+      "fit_time_seconds": 3.23,
+      "poisson_deviance": 41275.51,
+      "mae": 0.09674,
+      "observed_claims": 7225,
+      "expected_claims": 7257.57,
+      "oe_ratio": 0.9955,
+      "calibration_deciles": [
+        {
+          "decile": 1,
+          "exposure": 8475.35,
+          "observed_claims": 348,
+          "expected_claims": 365.96,
+          "oe_ratio": 0.9509
+        },
+        {
+          "decile": 2,
+          "exposure": 7780.83,
+          "observed_claims": 434,
+          "expected_claims": 439.44,
+          "oe_ratio": 0.9876
+        },
+        {
+          "decile": 3,
+          "exposure": 7661.53,
+          "observed_claims": 508,
+          "expected_claims": 510.06,
+          "oe_ratio": 0.996
+        },
+        {
+          "decile": 4,
+          "exposure": 7824.46,
+          "observed_claims": 558,
+          "expected_claims": 579.56,
+          "oe_ratio": 0.9628
+        },
+        {
+          "decile": 5,
+          "exposure": 7764.02,
+          "observed_claims": 631,
+          "expected_claims": 614.93,
+          "oe_ratio": 1.0261
+        },
+        {
+          "decile": 6,
+          "exposure": 7949.26,
+          "observed_claims": 691,
+          "expected_claims": 669.44,
+          "oe_ratio": 1.0322
+        },
+        {
+          "decile": 7,
+          "exposure": 7475.97,
+          "observed_claims": 719,
+          "expected_claims": 696.41,
+          "oe_ratio": 1.0324
+        },
+        {
+          "decile": 8,
+          "exposure": 5942.61,
+          "observed_claims": 691,
+          "expected_claims": 682.18,
+          "oe_ratio": 1.0129
+        },
+        {
+          "decile": 9,
+          "exposure": 5964.79,
+          "observed_claims": 892,
+          "expected_claims": 902.07,
+          "oe_ratio": 0.9888
+        },
+        {
+          "decile": 10,
+          "exposure": 4773.33,
+          "observed_claims": 1753,
+          "expected_claims": 1797.54,
+          "oe_ratio": 0.9752
+        }
+      ],
+      "notes": "Gradient boosted trees optimizing Poisson loss on rate; captures non-linear interactions across age and density."
+    }
+  },
+  "severity": {
+    "Gamma_GLM_statsmodels": {
+      "model_name": "Gamma GLM (statsmodels)",
+      "type": "Actuarial GLM (Baseline)",
+      "threshold_u": 40000.0,
+      "gamma_deviance": 6236.68,
+      "mae": 1321.31,
+      "rmse": 3451.31,
+      "mean_predicted": 1719.39,
+      "mean_observed": 1709.12,
+      "notes": "Classical actuarial severity model with log link on claims <= 40000 EUR."
+    },
+    "Gamma_Regressor_sklearn": {
+      "model_name": "Gamma Regressor (scikit-learn L2)",
+      "type": "Regularized Linear Model",
+      "threshold_u": 40000.0,
+      "fit_time_seconds": 0.64,
+      "gamma_deviance": 6226.71,
+      "mae": 1319.93,
+      "rmse": 3450.66,
+      "mean_predicted": 1718.0,
+      "mean_observed": 1709.12,
+      "notes": "L2-regularized Gamma GLM variant; stable parameter estimates under collinear dummy variables."
+    },
+    "HistGradientBoosting_Gamma": {
+      "model_name": "HistGradientBoosting (Gamma Loss)",
+      "type": "Non-linear Tree Ensemble",
+      "threshold_u": 40000.0,
+      "fit_time_seconds": 0.42,
+      "gamma_deviance": 6305.8,
+      "mae": 1254.99,
+      "rmse": 3454.34,
+      "mean_predicted": 1611.89,
+      "mean_observed": 1709.12,
+      "notes": "Gradient boosted trees optimizing Gamma loss; captures non-linear vehicle power/driver age interactions."
+    }
+  }
+}
